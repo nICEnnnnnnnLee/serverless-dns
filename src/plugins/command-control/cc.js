@@ -175,13 +175,8 @@ export class CommandControl {
         // redirect to the logs page
         response.data.httpResponse = await logs(this.lp, reqUrl, auth, lid);
       } else if (command === "config" || command === "configure" || !isDnsCmd) {
-        // redirect to configure page
-        response.data.httpResponse = configRedirect(
-          b64UserFlag,
-          reqUrl.origin,
-          this.latestTimestamp,
-          !isDnsCmd
-        );
+        // send 403
+        response.data.httpResponse = util.respond403();
       } else {
         this.log.w(rxid, "unknown command-control query");
         response.data.httpResponse = util.respond400();
