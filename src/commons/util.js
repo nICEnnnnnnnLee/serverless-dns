@@ -479,7 +479,8 @@ export function isGatewayRequest(req) {
 }
 
 export function isDnsQuery(p) {
-  return p === "dns-query";
+  // return p === "dns-query";
+  return p === "tools/doh";
 }
 
 export function isGatewayQuery(p) {
