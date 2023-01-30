@@ -396,6 +396,16 @@ export function respond401() {
   });
 }
 
+export function respond403() {
+  return new Response('403 Forbidden', {
+    status: 403,
+    statusText: "Forbidden",
+    headers: {
+      "Content-Type": "text/plain;charset=UTF-8",
+    },
+  });
+}
+
 export function respond405() {
   return new Response(null, {
     status: 405,
@@ -479,7 +489,8 @@ export function isGatewayRequest(req) {
 }
 
 export function isDnsQuery(p) {
-  return p === "dns-query";
+  // return p === "dns-query";
+  return p === "tools/doh";
 }
 
 export function isGatewayQuery(p) {
